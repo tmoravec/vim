@@ -71,6 +71,9 @@ setlocal ofu=syntaxcomplete#Complete
 " .tac files are Python
 au BufNewFile,BufRead *.tac set filetype=python
 
+" .conver files are Python
+au BufNewFile,BufRead *.cover set filetype=python
+
 " NERDTree on <leader>n
 map <leader>n :NERDTreeToggle<CR>
 
