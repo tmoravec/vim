@@ -1,7 +1,7 @@
 " Gvim...
 if has('gui_running')
     set guicursor+=a:blinkon0
-    set guifont=DejaVu\ Sans\ Mono\ 9
+    set guifont=DejaVu\ Sans\ Mono\ 8
     set lines=999 columns=999
 
     "toggle menubar on C-S-N
