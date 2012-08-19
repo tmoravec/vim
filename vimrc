@@ -79,7 +79,7 @@ map <leader>n :NERDTreeToggle<CR>
 
 " Taglist - F7 for update, F8 for toggle
 nnoremap <silent> <F7> :!ctags -R *.php *.py *.h *.hpp *.c *.cpp<CR> :TlistAddFilesRecursive . *.php *.py *.h *.hpp *.c *.cpp<CR>
-nnoremap <silent> <F8> :TlistToggle<CR>
+nnoremap <silent> <F8> :TagbarToggle<CR>
 
 "TList on right
 let Tlist_Use_Right_Window = 1
