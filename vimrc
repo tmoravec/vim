@@ -16,6 +16,9 @@ colo solarized
 set bg=light
 let g:solarized_contrast="high"
 
+" required in GNU Screen
+set t_Co=256
+
 " Toggle dark/light background on F4
 call togglebg#map("<F4>")
 
