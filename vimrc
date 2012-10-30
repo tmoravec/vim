@@ -11,9 +11,10 @@ if has('gui_running')
 endif
 
 " Solarized colorscheme
-colo solarized
+set bg=dark
+colo xoria256
+"colo solarized
 "colo default
-set bg=light
 let g:solarized_contrast="high"
 
 " required in GNU Screen
@@ -32,7 +33,8 @@ endif
 syntax on
 set textwidth=80
 set colorcolumn=+0
-"hi ColorColumn ctermbg=darkgray
+hi ColorColumn ctermbg=black
+hi ColorColumn guibg=black
 
 " Tabs switching
 map th :tabprev<CR>
