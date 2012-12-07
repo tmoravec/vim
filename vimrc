@@ -91,6 +91,8 @@ map <leader>n :NERDTreeToggle<CR>
 nnoremap <silent> <F7> :!ctags -R *.php *.py *.h *.hpp *.c *.cpp<CR> :TlistAddFilesRecursive . *.php *.py *.h *.hpp *.c *.cpp<CR>
 let g:tagbar_sort = 0
 map <leader>t :TagbarToggle<CR>
+" Update tag[list|bar] position every second
+set updatetime=1000
 
 "TList on right
 let Tlist_Use_Right_Window = 1
