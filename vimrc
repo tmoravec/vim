@@ -76,6 +76,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 filetype plugin on
 filetype indent plugin on
 setlocal ofu=syntaxcomplete#Complete
+set completeopt=menu
 
 " .tac files are Python
 au BufNewFile,BufRead *.tac set filetype=python
