@@ -109,6 +109,9 @@ autocmd FileType python map <C-M> :w!<CR>:!/usr/bin/python %<CR>
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
+" Disable pymode lint, we already use syntastic
+let g:pymode_lint = 0
+
 " Syntastic in statusline
 set statusline=%<%f\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
 
