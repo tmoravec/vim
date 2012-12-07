@@ -1,3 +1,6 @@
+" First of all load Pathogen
+call pathogen#infect()
+
 " Gvim...
 if has('gui_running')
     set guicursor+=a:blinkon0
@@ -12,10 +15,10 @@ endif
 
 " Solarized colorscheme
 set bg=dark
-colo xoria256
-"colo solarized
-"colo default
+"colo xoria256
 let g:solarized_contrast="high"
+colo solarized
+"colo default
 
 " required in GNU Screen
 set t_Co=256

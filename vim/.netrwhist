@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/tadeas/nodus/sendfile/.git'
-let g:netrw_dirhist_2='/home/tadeas/nodus/pycdn-dlserver/debian/etc/cron.d'
-let g:netrw_dirhist_3='/home/tadeas/nodus/pycdn-api/.git'
-let g:netrw_dirhist_4='/home/tadeas/prog/python/twisted-intro/twisted-server-1'
-let g:netrw_dirhist_5='/home/tadeas/.config/ipython'
-let g:netrw_dirhist_6='/home/tadeas/nodus/pycdn-libs'
