@@ -129,5 +129,3 @@ map <leader>gc :!git commit %<CR>
 map <leader>gca :!git commit -a<CR>
 map <leader>gpl :!git pull<CR>
 map <leader>gps :!git push<CR>
-
-source /home/tadeas/.vimrc_python_location
