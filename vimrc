@@ -129,3 +129,6 @@ map <leader>gc :!git commit %<CR>
 map <leader>gca :!git commit -a<CR>
 map <leader>gpl :!git pull<CR>
 map <leader>gps :!git push<CR>
+
+" Overwrite devault <leader>n - I use this for NERDTree.
+let g:jedi#related_names_command = ""
