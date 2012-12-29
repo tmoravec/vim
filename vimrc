@@ -88,7 +88,7 @@ au BufNewFile,BufRead *.cover set filetype=python
 map <leader>n :NERDTreeToggle<CR>
 
 " Taglist - F7 for update, F8 for toggle
-nnoremap <silent> <F7> :!ctags -R *.php *.py *.h *.hpp *.c *.cpp<CR> :TlistAddFilesRecursive . *.php *.py *.h *.hpp *.c *.cpp<CR>
+nnoremap <silent> <F7> :!ctags -R<CR>
 let g:tagbar_sort = 0
 map <leader>t :TagbarToggle<CR>
 " Update tag[list|bar] position every second
