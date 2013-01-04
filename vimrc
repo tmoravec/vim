@@ -132,3 +132,6 @@ map <leader>gps :!git push<CR>
 
 " Overwrite devault <leader>n - I use this for NERDTree.
 let g:jedi#related_names_command = ""
+
+" flake8 arguments
+let g:syntastic_python_checker_args='--ignore=E303'
