@@ -7,6 +7,7 @@ if has('gui_running')
     set guifont=DejaVu\ Sans\ Mono\ 8
     set lines=999 columns=999
     set guioptions-=T
+    set guioptions-=m
 
     "toggle menubar on C-S-N
     nnoremap <silent> <C-S-N> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
