@@ -135,4 +135,4 @@ map <leader>gps :!git push<CR>
 let g:jedi#related_names_command = ""
 
 " flake8 arguments
-let g:syntastic_python_checker_args='--ignore=E303'
+let g:syntastic_python_checker_args='--ignore=E303,E302'
