@@ -122,8 +122,8 @@ set statusline=%<%f\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l
 "let g:SuperTabDefaultCompletionType="context"
 
 " Rope
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>r :RopeRename<CR>
+"map <leader>j :RopeGotoDefinition<CR>
+"map <leader>r :RopeRename<CR>
 
 " GIT
 map <leader>gc :!git commit %<CR>
