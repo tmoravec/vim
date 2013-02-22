@@ -138,6 +138,7 @@ let g:jedi#related_names_command = ""
 let g:jedi#popup_on_dot = 0
 let g:jedi#autocompletion_command = "<C-Space>"
 let g:jedi#show_function_definition = "0"
+let g:jedi#goto_command = "<leader>j"
 
 " flake8 arguments
 let g:syntastic_python_checker_args='--ignore=E303,E302'
