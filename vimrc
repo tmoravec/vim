@@ -131,8 +131,13 @@ map <leader>gca :!git commit -a<CR>
 map <leader>gpl :!git pull<CR>
 map <leader>gps :!git push<CR>
 
-" Overwrite devault <leader>n - I use this for NERDTree.
+" Overwrite default <leader>n - I use this for NERDTree.
 let g:jedi#related_names_command = ""
+
+" Some other jedi stuff
+let g:jedi#popup_on_dot = 0
+let g:jedi#autocompletion_command = "<C-Space>"
+let g:jedi#show_function_definition = "0"
 
 " flake8 arguments
 let g:syntastic_python_checker_args='--ignore=E303,E302'
