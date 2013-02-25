@@ -144,3 +144,4 @@ let g:jedi#goto_command = "<leader>j"
 let g:syntastic_python_checkers=['flake8', 'pep8', 'pyflakes']
 let g:syntastic_python_flake8_args='--ignore=E303,E302'
 
+let python_highlight_all = 1
