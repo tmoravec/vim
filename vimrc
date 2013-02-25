@@ -33,9 +33,9 @@ if has("autocmd")
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
-" Syntax highlighting and column for 80 cols
+" Syntax highlighting and column for 79 cols
 syntax on
-set textwidth=80
+set textwidth=79
 set colorcolumn=+0
 hi ColorColumn ctermbg=black
 hi ColorColumn guibg=black
