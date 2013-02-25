@@ -141,4 +141,6 @@ let g:jedi#show_function_definition = "0"
 let g:jedi#goto_command = "<leader>j"
 
 " flake8 arguments
-let g:syntastic_python_checker_args='--ignore=E303,E302'
+let g:syntastic_python_checkers=['flake8', 'pep8', 'pyflakes']
+let g:syntastic_python_flake8_args='--ignore=E303,E302'
+
