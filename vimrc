@@ -66,6 +66,9 @@ set laststatus=2
 " Incremental search
 set incsearch
 
+" Ctrl-C as Esc
+map <C-c> <Esc>
+
 " Code folding (za)
 set foldmethod=indent
 set foldlevel=99
