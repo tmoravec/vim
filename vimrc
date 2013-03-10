@@ -1,6 +1,10 @@
 " First of all load Pathogen
 call pathogen#infect()
 
+" Solarized colorscheme
+set bg=dark
+colo xoria256
+
 " Gvim...
 if has('gui_running')
     set guicursor+=a:blinkon0
@@ -8,18 +12,14 @@ if has('gui_running')
     set lines=999 columns=999
     set guioptions-=T
     set guioptions-=m
+    let g:solarized_contrast="high"
+    colo solarized
 
     "toggle menubar on C-S-N
     nnoremap <silent> <C-S-N> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 
 endif
 
-" Solarized colorscheme
-set bg=dark
-"colo xoria256
-let g:solarized_contrast="high"
-colo solarized
-"colo default
 
 " required in GNU Screen
 set t_Co=256
