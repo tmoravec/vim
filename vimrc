@@ -12,6 +12,8 @@ if has('gui_running')
     set lines=999 columns=999
     set guioptions-=T
     set guioptions-=m
+    set guioptions+=LlRrb
+    set guioptions-=LlRrb
     let g:solarized_contrast="high"
     colo solarized
 
