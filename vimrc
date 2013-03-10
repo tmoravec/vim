@@ -154,4 +154,3 @@ let python_highlight_all = 1
 
 autocmd vimenter * NERDTree
 autocmd vimenter * :TagbarToggle
-autocmd VimEnter * wincmd l
