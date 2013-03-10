@@ -69,6 +69,9 @@ set incsearch
 " Ctrl-C as Esc
 map <C-c> <Esc>
 
+" Auto chdir to dir where I am
+set autochdir
+
 " Code folding (za)
 set foldmethod=indent
 set foldlevel=99
