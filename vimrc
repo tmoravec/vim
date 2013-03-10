@@ -1,7 +1,14 @@
 " First of all load Pathogen
 call pathogen#infect()
 
-" Solarized colorscheme
+" Syntax highlighting and column for 79 cols
+syntax on
+set textwidth=79
+set colorcolumn=+0
+hi ColorColumn ctermbg=233
+hi ColorColumn guibg=#073642
+
+" xoria256 colorscheme by default, exceptions later
 set bg=dark
 colo xoria256
 
@@ -19,7 +26,13 @@ if has('gui_running')
 
     "toggle menubar on C-S-N
     nnoremap <silent> <C-S-N> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+endif
 
+" Solarized colors in terminal with $VIMDEVEL shell variable defined
+if !empty($VIMDEVEL)
+    colo solarized
+    set bg=dark
+    hi ColorColumn ctermbg=black
 endif
 
 
@@ -35,12 +48,6 @@ if has("autocmd")
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
-" Syntax highlighting and column for 79 cols
-syntax on
-set textwidth=79
-set colorcolumn=+0
-hi ColorColumn ctermbg=233
-hi ColorColumn guibg=#073642
 
 " Tabs switching
 map th :tabprev<CR>
