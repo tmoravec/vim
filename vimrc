@@ -37,8 +37,8 @@ endif
 syntax on
 set textwidth=79
 set colorcolumn=+0
-hi ColorColumn ctermbg=black
-hi ColorColumn guibg=black
+hi ColorColumn ctermbg=233
+hi ColorColumn guibg=#073642
 
 " Tabs switching
 map th :tabprev<CR>
