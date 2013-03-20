@@ -165,4 +165,4 @@ let python_highlight_all = 1
 autocmd vimenter * :TagbarToggle
 
 nnoremap ; :
-map <leader>f :FufFile **/<CR>
+map ff :FufFile **/<CR>
