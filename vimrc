@@ -52,7 +52,7 @@ endif
 " Tabs switching
 map th :tabprev<CR>
 map tl :tabnext<CR>
-map tn :tabnew <BAR> :TagbarToggle<CR>
+map tn :tabnew <CR>
 map td :tabclose<CR>
 
 " Enable mouse
@@ -160,9 +160,6 @@ let g:syntastic_python_checkers=['flake8', 'pep8', 'pyflakes']
 let g:syntastic_python_flake8_args='--ignore=E303,E302'
 
 let python_highlight_all = 1
-
-"autocmd vimenter * NERDTree
-autocmd vimenter * :TagbarToggle
 
 nnoremap ; :
 map ff :FufFile **/<CR>
