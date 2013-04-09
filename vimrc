@@ -22,6 +22,7 @@ if has('gui_running')
     set guioptions+=LlRrb
     set guioptions-=LlRrb
     let g:solarized_contrast="high"
+    set bg=light
     colo solarized
 
     "toggle menubar on C-S-N
@@ -31,7 +32,7 @@ endif
 " Solarized colors in terminal with $VIMDEVEL shell variable defined
 if !empty($VIMDEVEL)
     colo solarized
-    set bg=dark
+    set bg=light
     hi ColorColumn ctermbg=black
 endif
 
