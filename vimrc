@@ -1,163 +1,85 @@
-" First of all load Pathogen
 call pathogen#infect()
 
-" Syntax highlighting and column for 79 cols
-syntax on
-set textwidth=79
-set colorcolumn=+0
-hi ColorColumn ctermbg=233
-hi ColorColumn guibg=#073642
+" solarized
+let g:solarized_contrast="high"
+colo solarized
 
-" xoria256 colorscheme by default, exceptions later
-set bg=dark
-colo xoria256
-
-" Gvim...
-if has('gui_running')
-    set guicursor+=a:blinkon0
-    set guifont=DejaVu\ Sans\ Mono\ 8
-    set lines=999 columns=999
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions+=LlRrb
-    set guioptions-=LlRrb
-    let g:solarized_contrast="high"
-    set bg=light
-    colo solarized
-
-    "toggle menubar on C-S-N
-    nnoremap <silent> <C-S-N> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-endif
-
-" Solarized colors in terminal with $VIMDEVEL shell variable defined
-if !empty($VIMDEVEL)
-    colo solarized
-    set bg=light
-    hi ColorColumn ctermbg=black
-endif
-
-
-" required in GNU Screen
-set t_Co=256
-
-" Toggle dark/light background on F4
-call togglebg#map("<F4>")
-
-" Disable beep and screen flash
-set noerrorbells visualbell t_vb=
-if has("autocmd")
-  autocmd GUIEnter * set visualbell t_vb=
-endif
-
+" Highlight 79th column
+set colorcolumn=79
 
 " Tabs switching
 map th :tabprev<CR>
+map <C-S-Tab> :tabprev<CR>
 map tl :tabnext<CR>
+map <C-Tab> :tabnext<CR>
 map tn :tabnew <CR>
 map td :tabclose<CR>
 
 " Enable mouse
 set mouse=a
 
-" Indetnation
-set smartindent
-set autoindent
-set shiftwidth=4
-set tabstop=4
-set expandtab
-set backspace=indent,eol,start
-
-" Line numbers
+" Make it a sane editor
+set incsearch
 set number
+set backspace=indent,eol,start
+set tabstop=4
+set shiftwidth=4
 
 " Show status line always
 set laststatus=2
 
-" Incremental search
-set incsearch
+" Some info in the status line
+set statusline=%<%f\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
 
-" Ctrl-C as Esc
-map <C-c> <Esc>
-
-" Code folding (za)
-set foldmethod=indent
-set foldlevel=99
-
-" Remove trailing spaces on exit
-autocmd BufWritePre * :%s/\s\+$//e
-
-" Filetype plugin and omnifunc autocomplete (C-<space>)
-filetype plugin on
-filetype indent plugin on
-setlocal ofu=syntaxcomplete#Complete
-set completeopt=menu
+" remove trailing space
+map <leader>rts :%s/\s\+$//e<CR>
 
 " .tac files are Python
 au BufNewFile,BufRead *.tac set filetype=python
 
-" .conver files are Python
-au BufNewFile,BufRead *.cover set filetype=python
+" Detect file types
+filetype plugin on
+filetype indent plugin on
+setlocal ofu=syntaxcomplete#Complete
+syntax on
 
-" NERDTree on <leader>n
-map <leader>n :NERDTreeToggle<CR>
-
-" Taglist - F7 for update, F8 for toggle
-nnoremap <silent> <F7> :!ctags -R<CR>
-let g:tagbar_sort = 0
+" Tagbar
 map <leader>t :TagbarToggle<CR>
-" Update tag[list|bar] position every second
 set updatetime=1000
+map <F7> :!ctags -R<CR>
 
-"TList on right
-let Tlist_Use_Right_Window = 1
-
-"open tag in a new tab on Ctrl-\
+" Open tag in new tab on C-\
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
-"Run script on CTRL+M and check syntax on CTRL+L
-autocmd FileType php map <C-M> :w!<CR>:!/usr/bin/php %<CR>
-autocmd FileType php map <C-L> :w!<CR>:!/usr/bin/php -l %<CR>
-autocmd FileType tex map <C-M> :w!<CR>:!pdflatex %<CR>
-autocmd FileType py map <C-M> :w!<CR>:!/usr/bin/python %<CR>
-autocmd FileType python map <C-M> :w!<CR>:!/usr/bin/python %<CR>
+" by default show tag selection on multiple options
+nnoremap <C-]> g<C-]>
+vnoremap <C-]> g<C-]>
+nnoremap g<C-]> <C-]>
+vnoremap g<C-]> <C-]>
 
-" Enable Syntastic
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
 
-" Disable pymode lint, we already use syntastic
-let g:pymode_lint = 0
+" This is a must :-)
+map <C-c> <Esc>
 
-" Syntastic in statusline
-set statusline=%<%f\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
+" GUI options
+set guicursor+=a:blinkon0
+set guifont=Menlo\ Regular:h10
+set guioptions-=T
+set guioptions-=m
+set guioptions+=LlRrb
+set guioptions-=LlRrb
+set linespace=2
 
-" Supertab
-"let g:SuperTabDefaultCompletionType="context"
+" CtrlP settings
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-" Rope
-"map <leader>j :RopeGotoDefinition<CR>
-"map <leader>r :RopeRename<CR>
 
-" GIT
-map <leader>gc :!git commit %<CR>
-map <leader>gca :!git commit -a<CR>
-map <leader>gpl :!git pull<CR>
-map <leader>gps :!git push<CR>
+" lets browse supertab in natural order, not reverse
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
-" Overwrite default <leader>n - I use this for NERDTree.
-let g:jedi#related_names_command = ""
+" DetectIndent settings
+autocmd BufReadPost * :DetectIndent
+let g:detectindent_preferred_expandtab = 1
+let g:detectindent_preferred_indent = 4
 
-" Some other jedi stuff
-let g:jedi#popup_on_dot = 0
-let g:jedi#autocompletion_command = "<C-Space>"
-let g:jedi#show_function_definition = "0"
-let g:jedi#goto_command = "<leader>j"
-
-" flake8 arguments
-let g:syntastic_python_checkers=['flake8', 'pep8', 'pyflakes']
-let g:syntastic_python_flake8_args='--ignore=E303,E302'
-
-let python_highlight_all = 1
-
-nnoremap ; :
-map ff :FufFile **/<CR>

@@ -37,15 +37,25 @@ endif
 function! SyntaxCheckers_sass_sass_GetLocList()
     if !g:syntastic_sass_check_partials && expand('%:t')[0] == '_'
         return []
-    end
-    let makeprg = syntastic#makeprg#build({
-                \ 'exe': 'sass',
-                \ 'args': '--cache-location ' . s:sass_cache_location . ' ' . s:imports . ' --check' })
-    let errorformat = '%ESyntax %trror:%m,%C        on line %l of %f,%Z%.%#'
-    let errorformat .= ',%Wwarning on line %l:,%Z%m,Syntax %trror on line %l: %m'
-    let loclist = SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
+    endif
 
-    return loclist
+    let makeprg = syntastic#makeprg#build({
+        \ 'exe': 'sass',
+        \ 'args': '--cache-location ' . s:sass_cache_location . ' ' . s:imports . ' --check',
+        \ 'filetype': 'sass',
+        \ 'subchecker': 'sass' })
+
+    let errorformat =
+        \ '%ESyntax %trror:%m,' .
+        \ '%C        on line %l of %f,' .
+        \ '%Z%.%#,' .
+        \ '%Wwarning on line %l:,' .
+        \ '%Z%m,' .
+        \ 'Syntax %trror on line %l: %m'
+
+    return SyntasticMake({
+        \ 'makeprg': makeprg,
+        \ 'errorformat': errorformat })
 endfunction
 
 call g:SyntasticRegistry.CreateAndRegisterChecker({

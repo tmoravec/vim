@@ -19,10 +19,26 @@ function! SyntaxCheckers_coffee_coffee_IsAvailable()
 endfunction
 
 function! SyntaxCheckers_coffee_coffee_GetLocList()
+    " TODO: This creates a .js file in the same directory as the source.
+    " Adding an option '-o /tmp' is not acceptable, since it would make
+    " impossible for other users to check a file with the same name.
+    " Sadly, Vim doesn't have a function to create temporary directories.
     let makeprg = syntastic#makeprg#build({
-                \ 'exe': 'coffee',
-                \ 'args': '-c -l -o /tmp' })
-    let errorformat =  'Syntax%trror: In %f\, %m on line %l,%EError: In %f\, Parse error on line %l: %m,%EError: In %f\, %m on line %l,%W%f(%l): lint warning: %m,%-Z%p^,%W%f(%l): warning: %m,%-Z%p^,%E%f(%l): SyntaxError: %m,%-Z%p^,%-G%.%#'
+        \ 'exe': 'coffee',
+        \ 'args': '-c',
+        \ 'filetype': 'coffee',
+        \ 'subchecker': 'coffee' })
+
+    let errorformat =
+        \ '%E%f:%l:%c: %trror: %m,' .
+        \ 'Syntax%trror: In %f\, %m on line %l,' .
+        \ '%EError: In %f\, Parse error on line %l: %m,' .
+        \ '%EError: In %f\, %m on line %l,' .
+        \ '%W%f(%l): lint warning: %m,' .
+        \ '%W%f(%l): warning: %m,' .
+        \ '%E%f(%l): SyntaxError: %m,' .
+        \ '%-Z%p^,' .
+        \ '%-G%.%#'
 
     return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
 endfunction

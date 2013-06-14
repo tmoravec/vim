@@ -16,7 +16,7 @@ endif
 let g:loaded_syntastic_puppet_puppetlint_checker=1
 
 function! SyntaxCheckers_puppet_puppetlint_IsAvailable()
-    return executable("puppet")
+    return executable("puppet-lint")
 endfunction
 
 if !exists("g:syntastic_puppet_validate_disable")
@@ -33,25 +33,20 @@ endif
 
 function! s:PuppetVersion()
     if !exists("s:puppet_version")
-        let output = system("puppet --version 2>/dev/null")
-        let output = substitute(output, '\n$', '', '')
-        let s:puppet_version = split(output, '\.')
+        let s:puppet_version = syntastic#util#parseVersion("puppet --version 2>/dev/null")
     endif
     return s:puppet_version
 endfunction
 
 function! s:PuppetLintVersion()
     if !exists("s:puppet_lint_version")
-        let output = system("puppet-lint --version 2>/dev/null")
-        let output = substitute(output, '\n$', '', '')
-        let output = substitute(output, '^puppet-lint ', '', 'i')
-        let s:puppet_lint_version = split(output, '\.')
+        let s:puppet_lint_version = syntastic#util#parseVersion("puppet-lint --version 2>/dev/null")
     endif
     return s:puppet_lint_version
 endfunction
 
 if !g:syntastic_puppet_lint_disable
-    if !SyntasticIsVersionAtLeast(s:PuppetLintVersion(), [0,1,10])
+    if !syntastic#util#versionIsAtLeast(s:PuppetLintVersion(), [0,1,10])
         let g:syntastic_puppet_lint_disable = 1
     endif
 end
@@ -68,7 +63,7 @@ endfunction
 
 function! s:getPuppetMakeprg()
     "If puppet is >= version 2.7 then use the new executable
-    if SyntasticIsVersionAtLeast(s:PuppetVersion(), [2,7,0])
+    if syntastic#util#versionIsAtLeast(s:PuppetVersion(), [2,7,0])
         let makeprg = 'puppet parser validate ' .
                     \ shellescape(expand('%')) .
                     \ ' --color=false'
@@ -86,7 +81,7 @@ function! s:getPuppetEfm()
 
     "Puppet 3.0.0 changes this from "err:" to "Error:"
     "reset errorformat in that case
-    if SyntasticIsVersionAtLeast(s:PuppetVersion(), [3,0,0])
+    if syntastic#util#versionIsAtLeast(s:PuppetVersion(), [3,0,0])
         let errorformat = '%-GError: Try ''puppet help parser validate'' for usage,'
         let errorformat .= 'Error: Could not parse for environment %*[a-z]: %m at %f:%l'
     endif
