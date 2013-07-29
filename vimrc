@@ -83,3 +83,5 @@ autocmd BufReadPost * :DetectIndent
 let g:detectindent_preferred_expandtab = 1
 let g:detectindent_preferred_indent = 4
 
+let g:syntastic_always_populate_loc_list=1
+
