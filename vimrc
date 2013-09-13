@@ -85,3 +85,5 @@ let g:detectindent_preferred_indent = 4
 
 let g:syntastic_always_populate_loc_list=1
 
+" open NERDTree
+map <leader>n :NERDTreeToggle<CR>
