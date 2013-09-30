@@ -93,3 +93,9 @@ map <leader>n :NERDTreeToggle<CR>
 
 " 256 colors in screen/tmux
 set t_Co=256
+
+" Enable RainbowParentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
