@@ -85,8 +85,8 @@ let g:detectindent_preferred_indent = 4
 
 " Syntastic
 let g:syntastic_always_populate_loc_list=1
-map ln :lnext<CR>
-map lp :lprev<CR>
+"map ln :lnext<CR>
+"map lp :lprev<CR>
 
 " open NERDTree
 map <leader>n :NERDTreeToggle<CR>
