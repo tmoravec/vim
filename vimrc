@@ -24,6 +24,13 @@ set number
 set backspace=indent,eol,start
 set tabstop=4
 set shiftwidth=4
+set copyindent
+set smartcase
+set title
+
+" no backup files
+set nobackup
+set noswapfile
 
 " Show status line always
 set laststatus=2
@@ -47,6 +54,7 @@ syntax on
 map <leader>t :TagbarToggle<CR>
 set updatetime=1000
 map <F7> :!ctags -R<CR>
+let g:tagbar_sort=0
 
 " Open tag in new tab on C-\
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
