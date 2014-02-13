@@ -1,7 +1,11 @@
 call pathogen#infect()
 
 " solarized
-let g:solarized_contrast="high"
+if has("gui_running")
+    let g:solarized_contrast="high"
+else
+    let g:solarized_termcolors=256
+endif
 colo solarized
 
 " Highlight 79th column
@@ -24,6 +28,7 @@ set number
 set backspace=indent,eol,start
 set tabstop=4
 set shiftwidth=4
+set expandtab
 set copyindent
 set smartcase
 set title
@@ -41,14 +46,16 @@ set statusline=%<%f\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l
 " remove trailing space
 map <leader>rts :%s/\s\+$//e<CR>
 
-" .tac files are Python
-au BufNewFile,BufRead *.tac set filetype=python
 
 " Detect file types
 filetype plugin on
 filetype indent plugin on
 setlocal ofu=syntaxcomplete#Complete
 syntax on
+
+" .tac files are Python
+au BufNewFile,BufRead *.tac set filetype=python
+au BufNewFile,BufRead *.lsp set filetype=newlisp
 
 " Tagbar
 map <leader>t :TagbarToggle<CR>
@@ -103,7 +110,7 @@ map <leader>n :NERDTreeToggle<CR>
 set t_Co=256
 
 " Enable RainbowParentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
