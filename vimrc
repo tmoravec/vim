@@ -89,9 +89,10 @@ set linespace=2
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-
-" lets browse supertab in natural order, not reverse
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" Context aware SuperTab
+let g:SuperTabDefaultCompletionType = "context"
+" but disable the preview pane
+set completeopt-=preview
 
 " DetectIndent settings
 autocmd BufReadPost * :DetectIndent
