@@ -55,7 +55,6 @@ syntax on
 
 " .tac files are Python
 au BufNewFile,BufRead *.tac set filetype=python
-au BufNewFile,BufRead *.lsp set filetype=newlisp
 
 " Tagbar
 map <leader>t :TagbarToggle<CR>
@@ -89,8 +88,11 @@ set linespace=2
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
+" Vim Completer settings
+let g:kompleter_replace_standard_mappings = 0
+
 " Context aware SuperTab
-let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 " but disable the preview pane
 set completeopt-=preview
 
