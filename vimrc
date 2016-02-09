@@ -28,6 +28,7 @@ set number
 set backspace=indent,eol,start
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
 set expandtab
 set copyindent
 set smartcase
@@ -117,3 +118,9 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" additional vim c++ syntax highlighting
+let g:cpp_class_scope_highlight = 1
+
+map <leader>j :cn<CR>
+map <leader>k :cp<CR>

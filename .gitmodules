@@ -25,3 +25,6 @@
 [submodule "vim/bundle/vim-kompleter"]
 	path = vim/bundle/vim-kompleter
 	url = https://github.com/szw/vim-kompleter.git
+[submodule "vim/bundle/vim-cpp-enhanced-highlight"]
+	path = vim/bundle/vim-cpp-enhanced-highlight
+	url = https://github.com/octol/vim-cpp-enhanced-highlight
