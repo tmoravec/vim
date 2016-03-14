@@ -28,3 +28,6 @@
 [submodule "vim/bundle/vim-cpp-enhanced-highlight"]
 	path = vim/bundle/vim-cpp-enhanced-highlight
 	url = https://github.com/octol/vim-cpp-enhanced-highlight
+[submodule "vim/bundle/Mark"]
+	path = vim/bundle/Mark
+	url = https://github.com/vim-scripts/Mark

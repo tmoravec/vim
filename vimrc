@@ -80,7 +80,7 @@ map <C-c> <Esc>
 
 " GUI options
 set guicursor+=a:blinkon0
-set guifont=Menlo\ Regular:h10
+set guifont=Menlo\ Regular:h11
 set guioptions-=T
 set guioptions-=m
 set guioptions+=LlRrb
@@ -108,7 +108,7 @@ let g:detectindent_preferred_indent = 4
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_cpp_compiler_options = '-std=c++11'
 " open NERDTree
-map <leader>n :NERDTreeToggle<CR>
+map <leader>f :NERDTreeToggle<CR>
 
 " 256 colors in screen/tmux
 set t_Co=256
