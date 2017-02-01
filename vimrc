@@ -1,11 +1,12 @@
 call pathogen#infect()
 
 " solarized
-if has("gui_running")
-    let g:solarized_contrast="high"
-else
-    let g:solarized_termcolors=256
-endif
+"if has("gui_running")
+"    let g:solarized_contrast="high"
+"else
+"    let g:solarized_termcolors=256
+"endif
+let g:solarized_contrast="high"
 colo solarized
 
 " Highlight 79th column
@@ -48,6 +49,9 @@ set statusline=%<%f\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l
 
 " remove trailing space
 map <leader>rts :%s/\s\+$//e<CR>
+
+" Set syntax to diff
+map <leader>ssd :set syntax=diff<CR>
 
 
 " Detect file types
