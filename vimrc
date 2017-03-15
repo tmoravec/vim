@@ -131,3 +131,8 @@ let g:cpp_class_scope_highlight = 1
 
 map <leader>j :cn<CR>
 map <leader>k :cp<CR>
+
+" Set syntax to diff
+map <leader>ssd :set syntax=diff<CR>
+
+set encoding=utf-8
