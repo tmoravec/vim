@@ -53,6 +53,8 @@ map <leader>rts :%s/\s\+$//e<CR>
 " Set syntax to diff
 map <leader>ssd :set syntax=diff<CR>
 
+" Don't search in tags file
+set grepprg=grep\ -n\ --exclude=tags\ $*\ /dev/null
 
 " Detect file types
 filetype plugin on
@@ -111,6 +113,7 @@ let g:detectindent_preferred_indent = 4
 " Syntastic
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_cpp_compiler_options = '-std=c++11'
+
 " open NERDTree
 map <leader>f :NERDTreeToggle<CR>
 
