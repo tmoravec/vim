@@ -31,3 +31,6 @@
 [submodule "vim/bundle/Mark"]
 	path = vim/bundle/Mark
 	url = https://github.com/vim-scripts/Mark
+[submodule "vim/bundle/vim-colors-pencil"]
+	path = vim/bundle/vim-colors-pencil
+	url = https://github.com/reedes/vim-colors-pencil.git
