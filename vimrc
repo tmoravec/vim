@@ -1,13 +1,6 @@
 call pathogen#infect()
 
-" solarized
-"if has("gui_running")
-"    let g:solarized_contrast="high"
-"else
-"    let g:solarized_termcolors=256
-"endif
-"let g:solarized_contrast="high"
-"colo solarized
+let g:pencil_higher_contrast_ui = 1
 colo pencil
 
 " Highlight 79th column
@@ -130,6 +123,9 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " additional vim c++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_concepts_highlight = 1
+
 
 map <leader>j :cn<CR>
 map <leader>k :cp<CR>
