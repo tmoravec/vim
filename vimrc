@@ -36,6 +36,7 @@ set smartcase
 set title
 set wildmode=longest,list,full
 set wildmenu
+set lazyredraw
 
 " no backup files
 set nobackup
