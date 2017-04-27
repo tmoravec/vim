@@ -6,8 +6,9 @@ call pathogen#infect()
 "else
 "    let g:solarized_termcolors=256
 "endif
-let g:solarized_contrast="high"
-colo solarized
+"let g:solarized_contrast="high"
+"colo solarized
+colo pencil
 
 " Highlight 79th column
 set colorcolumn=79
