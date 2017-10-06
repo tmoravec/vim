@@ -60,6 +60,9 @@ syntax on
 " .tac files are Python
 au BufNewFile,BufRead *.tac set filetype=python
 
+" .twig files are HTML
+au BufNewFile,BufRead *.twig set filetype=html
+
 " Tagbar
 map <leader>t :TagbarToggle<CR>
 set updatetime=1000
