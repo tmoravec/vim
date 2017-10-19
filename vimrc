@@ -49,7 +49,7 @@ map <leader>rts :%s/\s\+$//e<CR>
 map <leader>ssd :set syntax=diff<CR>
 
 " Don't search in tags file
-set grepprg=grep\ -n\ --exclude=tags\ $*\ /dev/null
+set grepprg=grep\ -n\ -I\ -R\ --exclude=tags\ $*\ /dev/null
 
 " Detect file types
 filetype plugin on
@@ -137,3 +137,6 @@ map <leader>k :cp<CR>
 map <leader>ssd :set syntax=diff<CR>
 
 set encoding=utf-8
+
+map j gj
+map k gk
