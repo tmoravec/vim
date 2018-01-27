@@ -111,6 +111,8 @@ let g:detectindent_preferred_indent = 4
 " Syntastic
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_cpp_compiler_options = '-std=c++11'
+let g:syntastic_python_checkers=["pylint"]
+let g:syntastic_python_pylint_args="-d C0103,C0111"
 
 " open NERDTree
 map <leader>f :NERDTreeToggle<CR>
