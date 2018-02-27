@@ -54,7 +54,7 @@ map <leader>rts :%s/\s\+$//e<CR>
 map <leader>ssd :set syntax=diff<CR>
 
 " Don't search in tags file
-set grepprg=grep\ -n\ -I\ -R\ --exclude=tags\ --exclude=\*.ipynb\ $*\ /dev/null
+set grepprg=grep\ -n\ -i\ -R\ --exclude=tags\ --exclude=\*.ipynb\ --exclude=\*.pyc\ $*\ \*\*\/\*\ /dev/null
 
 " Detect file types
 filetype plugin on
