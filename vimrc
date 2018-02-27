@@ -1,10 +1,15 @@
 call pathogen#infect()
 
-let g:pencil_higher_contrast_ui = 1
+" 256 colors in screen/tmux
+set t_Co=256
+set term=screen-256color
+
+let g:solarized_termcolors = 256
+let g:pencil_higher_contrast_ui = 0
 colo pencil
 set bg=light
 " Highlight 79th column
-set colorcolumn=79
+set colorcolumn=80
 
 " Tabs switching
 map th :tabprev<CR>
@@ -49,7 +54,7 @@ map <leader>rts :%s/\s\+$//e<CR>
 map <leader>ssd :set syntax=diff<CR>
 
 " Don't search in tags file
-set grepprg=grep\ -n\ -I\ -R\ --exclude=tags\ $*\ /dev/null
+set grepprg=grep\ -n\ -I\ -R\ --exclude=tags\ --exclude=\*.ipynb\ $*\ /dev/null
 
 " Detect file types
 filetype plugin on
@@ -116,9 +121,6 @@ let g:syntastic_python_pylint_args="-d C0103,C0111"
 
 " open NERDTree
 map <leader>f :NERDTreeToggle<CR>
-
-" 256 colors in screen/tmux
-set t_Co=256
 
 " Enable RainbowParentheses
 au VimEnter * RainbowParenthesesToggle
