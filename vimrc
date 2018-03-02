@@ -45,7 +45,7 @@ set noswapfile
 set laststatus=2
 
 " Some info in the status line
-set statusline=%<%f\ %h%m%r%#warningmsg#%{SyntasticStatuslineFlag()}%*%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %h%m%r%#warningmsg#%*%=%-14.(%l,%c%V%)\ %P
 
 " remove trailing space
 map <leader>rts :%s/\s\+$//e<CR>
@@ -114,13 +114,24 @@ let g:detectindent_preferred_expandtab = 1
 let g:detectindent_preferred_indent = 4
 
 " Syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_cpp_compiler_options = '-std=c++11'
-let g:syntastic_python_checkers=["pylint"]
-let g:syntastic_python_pylint_args="-d C0103,C0111"
+" let g:syntastic_always_populate_loc_list=1
+" let g:syntastic_cpp_compiler_options = '-std=c++11'
+" let g:syntastic_python_checkers=["pylint", "flake8", "pyflakes"]
+" let g:syntastic_python_pylint_args="-d C0103,C0111,R0903,R0201,W0613,E1101"
+
+" ALE
+" let g:ale_lint_on_text_changed = 'never'
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 0
+let g:ale_lint_on_enter = 0
+" let g:ale_linters = {
+" \   'python': ['pylint'],
+" \}
+let g:ale_python_python_options = "-d C0103,C0111,R0903,R0201,W0613,E1101"
 
 " open NERDTree
-map <leader>f :NERDTreeToggle<CR>
+map <leader>f :NERDTreeToggle %<CR>
+map <leader>F :NERDTreeToggle<CR>
 
 " Enable RainbowParentheses
 au VimEnter * RainbowParenthesesToggle
