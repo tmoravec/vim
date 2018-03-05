@@ -127,7 +127,7 @@ let g:ale_lint_on_enter = 0
 " let g:ale_linters = {
 " \   'python': ['pylint'],
 " \}
-let g:ale_python_python_options = "-d C0103,C0111,R0903,R0201,W0613,E1101"
+let g:ale_python_pylint_options = "-d C0103,C0111,R0903,R0201,W0613,E1101"
 
 " open NERDTree
 map <leader>f :NERDTreeToggle %<CR>
