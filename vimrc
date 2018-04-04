@@ -50,6 +50,10 @@ set statusline=%<%f\ %h%m%r%#warningmsg#%*%=%-14.(%l,%c%V%)\ %P
 " remove trailing space
 map <leader>rts :%s/\s\+$//e<CR>
 
+" quick resize
+map <leader>vri :vertical resize +20<CR>
+map <leader>vrd :vertical resize -20<CR>
+
 " Set syntax to diff
 map <leader>ssd :set syntax=diff<CR>
 
