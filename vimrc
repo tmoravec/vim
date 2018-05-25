@@ -73,7 +73,6 @@ au BufNewFile,BufRead *.tac set filetype=python
 au BufNewFile,BufRead *.twig set filetype=html
 
 " Tagbar
-map <leader>t :TagbarToggle<CR>
 set updatetime=1000
 map <F7> :!ctags -R<CR>
 let g:tagbar_sort=0
@@ -104,13 +103,16 @@ set linespace=2
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-" Vim Completer settings
+" Vim kompleter settings
 let g:kompleter_replace_standard_mappings = 0
 
 " Context aware SuperTab
-let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
-" but disable the preview pane
-set completeopt-=preview
+let g:SuperTabDefaultCompletionType = "<c-x><c-p>"
+" but disable the preview pane (completeopt without 'preview')
+set completeopt=longest,menuone
+set complete=.,b,u,]
+" Height of the complete menu.
+set pumheight=10
 
 " DetectIndent settings
 autocmd BufReadPost * :DetectIndent
@@ -133,9 +135,9 @@ let g:ale_lint_on_enter = 0
 " \}
 let g:ale_python_pylint_options = "-d C0103,C0111,R0903,R0201,W0613,E1101"
 
-" open NERDTree
-map <leader>f :NERDTreeToggle %<CR>
-map <leader>F :NERDTreeToggle<CR>
+" open NERDTree and Tagbar
+map <leader>f :NERDTreeToggle %<CR>:TagbarToggle<CR>
+map <leader>F :NERDTreeToggle<CR>:TagbarToggle<CR>
 
 " Enable RainbowParentheses
 au VimEnter * RainbowParenthesesToggle
@@ -159,3 +161,5 @@ set encoding=utf-8
 
 map j gj
 map k gk
+
+let g:deoplete#enable_at_startup = 1
