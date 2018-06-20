@@ -86,7 +86,6 @@ vnoremap <C-]> g<C-]>
 nnoremap g<C-]> <C-]>
 vnoremap g<C-]> <C-]>
 
-
 " This is a must :-)
 map <C-c> <Esc>
 
@@ -103,14 +102,12 @@ set linespace=2
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-" Vim kompleter settings
-let g:kompleter_replace_standard_mappings = 0
-
-" Context aware SuperTab
-let g:SuperTabDefaultCompletionType = "<c-x><c-p>"
-" but disable the preview pane (completeopt without 'preview')
+" Completion settings
+"
+" Disable the preview pane on completion (completeopt without 'preview')
 set completeopt=longest,menuone
-set complete=.,b,u,]
+set complete=.,],w,b,u,U,i
+"
 " Height of the complete menu.
 set pumheight=10
 
@@ -118,12 +115,6 @@ set pumheight=10
 autocmd BufReadPost * :DetectIndent
 let g:detectindent_preferred_expandtab = 1
 let g:detectindent_preferred_indent = 4
-
-" Syntastic
-" let g:syntastic_always_populate_loc_list=1
-" let g:syntastic_cpp_compiler_options = '-std=c++11'
-" let g:syntastic_python_checkers=["pylint", "flake8", "pyflakes"]
-" let g:syntastic_python_pylint_args="-d C0103,C0111,R0903,R0201,W0613,E1101"
 
 " ALE
 " let g:ale_lint_on_text_changed = 'never'
@@ -136,8 +127,7 @@ let g:ale_lint_on_enter = 0
 let g:ale_python_pylint_options = "-d C0103,C0111,R0903,R0201,W0613,E1101"
 
 " open NERDTree and Tagbar
-map <leader>f :NERDTreeToggle %<CR>:TagbarToggle<CR>
-map <leader>F :NERDTreeToggle<CR>:TagbarToggle<CR>
+map <leader>f :NERDTreeToggle<CR>:TagbarToggle<CR>
 
 " Enable RainbowParentheses
 au VimEnter * RainbowParenthesesToggle
@@ -145,7 +135,7 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" additional vim c++ syntax highlighting
+" additional vim C++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_concepts_highlight = 1
@@ -161,5 +151,3 @@ set encoding=utf-8
 
 map j gj
 map k gk
-
-let g:deoplete#enable_at_startup = 1
