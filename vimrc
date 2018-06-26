@@ -106,7 +106,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 "
 " Disable the preview pane on completion (completeopt without 'preview')
 set completeopt=longest,menuone
-set complete=.,],w,b,u,U,i
+set complete=.,],w,b,u,U
 "
 " Height of the complete menu.
 set pumheight=10
