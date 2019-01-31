@@ -125,6 +125,7 @@ let g:ale_lint_on_enter = 0
 " \   'python': ['pylint'],
 " \}
 let g:ale_python_pylint_options = "-d C0103,C0111,R0903,R0201,W0613,E1101"
+map <leader>al :ALELint<CR>
 
 " open NERDTree and Tagbar
 map <leader>f :NERDTreeToggle<CR>:TagbarToggle<CR>
