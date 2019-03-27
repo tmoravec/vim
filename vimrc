@@ -5,7 +5,7 @@ set t_Co=256
 set term=screen-256color
 
 let g:solarized_termcolors = 256
-let g:pencil_higher_contrast_ui = 0
+let g:pencil_higher_contrast_ui = 1
 colo pencil
 set bg=light
 " Highlight 79th column
