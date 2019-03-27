@@ -61,7 +61,7 @@ map <leader>vrd :vertical resize -20<CR>
 map <leader>ssd :set syntax=diff<CR>
 
 " Don't search in tags file
-set grepprg=grep\ -n\ -i\ -R\ --exclude=tags\ --exclude=\*.ipynb\ --exclude=\*.pyc\ $*\ .\ /dev/null
+set grepprg=grep\ -n\ -i\ -R\ --exclude=tags\ --exclude=\*.ipynb\ --exclude=\*.pyc\ --exclude=.mypy_cache/\*\ $*\ .\ /dev/null
 
 " Detect file types
 filetype plugin on
@@ -102,7 +102,7 @@ set guioptions-=LlRrb
 set linespace=2
 
 " CtrlP settings
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.mypy_cache/*
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " Completion settings
