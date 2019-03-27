@@ -51,7 +51,7 @@ set statusline=%<%f\ %h%m%r%#warningmsg#%*%=%-14.(%l,%c%V%)\ %P
 map <leader>rts :%s/\s\+$//e<CR>
 
 " run Black
-map <leader>black :!black %<CR>
+map <leader>black :!black -l 80 %<CR>
 
 " quick resize
 map <leader>vri :vertical resize +20<CR>
