@@ -77,7 +77,7 @@ au BufNewFile,BufRead *.twig set filetype=html
 
 " Tagbar
 set updatetime=1000
-map <F7> :!ctags -R<CR>
+map <F7> :!ctags -R --exclude=.mypy_cache<CR>
 let g:tagbar_sort=0
 
 " Open tag in new tab on C-\
