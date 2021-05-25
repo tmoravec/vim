@@ -1,14 +1,14 @@
-" call pathogen#infect()
-
 " 256 colors in screen/tmux
 set t_Co=256
 set term=screen-256color
 
+" Colorschemes
 let g:solarized_termcolors = 256
 let g:pencil_higher_contrast_ui = 1
 let g:pencil_neutral_code_bg = 1
 colo pencil
 set bg=light
+
 " Highlight 80th column
 set colorcolumn=80
 
@@ -107,7 +107,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.mypy_cache/*
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " Completion settings
-"
+
 " Disable the preview pane on completion (completeopt without 'preview')
 set completeopt=longest,menuone
 set complete=.,],w,b,u,U
@@ -116,9 +116,9 @@ set complete=.,],w,b,u,U
 set pumheight=10
 
 " DetectIndent settings
-autocmd BufReadPost * :DetectIndent
 let g:detectindent_preferred_expandtab = 1
 let g:detectindent_preferred_indent = 4
+autocmd BufReadPost * :DetectIndent
 
 " ALE
 " let g:ale_lint_on_text_changed = 'never'
@@ -133,12 +133,6 @@ map <leader>al :ALELint<CR>
 
 " open NERDTree and Tagbar
 map <leader>f :NERDTreeToggle<CR>:TagbarToggle<CR>
-
-" Enable RainbowParentheses
-" au VimEnter * RainbowParenthesesToggle
-" au Syntax * RainbowParenthesesLoadRound
-" au Syntax * RainbowParenthesesLoadSquare
-" au Syntax * RainbowParenthesesLoadBraces
 
 " additional vim C++ syntax highlighting
 let g:cpp_class_scope_highlight = 1

@@ -1,14 +1,14 @@
 [submodule "vim/pack/modules/start/ctrlp.vim"]
 	path = vim/pack/modules/start/ctrlp.vim
-	url = git://github.com/kien/ctrlp.vim.git
+	url = https://github.com/kien/ctrlp.vim.git
 [submodule "vim/pack/modules/start/detectindent"]
 	path = vim/pack/modules/start/detectindent
 	url = https://github.com/roryokane/detectindent
 [submodule "vim/pack/modules/start/tagbar"]
 	path = vim/pack/modules/start/tagbar
-	url = git://github.com/majutsushi/tagbar.git
+	url = https://github.com/majutsushi/tagbar.git
 [submodule "vim/pack/modules/start/nerdtree"]
-	path = vim/bundle/start/nerdtree
+	path = vim/pack/modules/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim/pack/modules/start/vim-cpp-enhanced-highlight"]
 	path = vim/pack/modules/start/vim-cpp-enhanced-highlight
