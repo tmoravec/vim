@@ -1,4 +1,4 @@
-call pathogen#infect()
+" call pathogen#infect()
 
 " 256 colors in screen/tmux
 set t_Co=256
@@ -6,9 +6,10 @@ set term=screen-256color
 
 let g:solarized_termcolors = 256
 let g:pencil_higher_contrast_ui = 1
+let g:pencil_neutral_code_bg = 1
 colo pencil
 set bg=light
-" Highlight 79th column
+" Highlight 80th column
 set colorcolumn=80
 
 " Tabs switching
@@ -134,10 +135,10 @@ map <leader>al :ALELint<CR>
 map <leader>f :NERDTreeToggle<CR>:TagbarToggle<CR>
 
 " Enable RainbowParentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 
 " additional vim C++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
