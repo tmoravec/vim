@@ -4,9 +4,9 @@ call pathogen#infect()
 set t_Co=256
 set term=screen-256color
 
-let g:solarized_termcolors = 256
 let g:pencil_higher_contrast_ui = 1
-colo pencil
+let solarized_contrast = "high"
+colo solarized
 set bg=light
 " Highlight 79th column
 set colorcolumn=80
@@ -61,7 +61,7 @@ map <leader>vrd :vertical resize -20<CR>
 map <leader>ssd :set syntax=diff<CR>
 
 " Don't search in tags file
-set grepprg=grep\ -n\ -i\ -R\ --exclude=tags\ --exclude=\*.ipynb\ --exclude=\*.pyc\ --exclude=.mypy_cache/\*\ $*\ .\ /dev/null
+set grepprg=grep\ -n\ -i\ -R\ --exclude=tags\ --exclude=\*.ipynb\ --exclude=\*.pyc\ --exclude=\*.map\ --exclude-dir=\*node_modules*\ --exclude-dir=.mypy_cache\*\ $*\ .\ /dev/null
 
 " Detect file types
 filetype plugin on
