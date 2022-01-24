@@ -1,14 +1,16 @@
-call pathogen#infect()
-
 " 256 colors in screen/tmux
 set t_Co=256
 set term=screen-256color
 
+" Colorschemes
 let g:pencil_higher_contrast_ui = 1
 let solarized_contrast = "high"
+let g:pencil_higher_contrast_ui = 1
+let g:pencil_neutral_code_bg = 1
 colo solarized
 set bg=light
-" Highlight 79th column
+
+" Highlight 80th column
 set colorcolumn=80
 
 " Tabs switching
@@ -62,6 +64,7 @@ map <leader>ssd :set syntax=diff<CR>
 
 " Don't search in tags file
 set grepprg=grep\ -n\ -i\ -R\ --exclude=tags\ --exclude=\*.ipynb\ --exclude=\*.pyc\ --exclude=\*.map\ --exclude-dir=\*node_modules*\ --exclude-dir=.mypy_cache\*\ $*\ .\ /dev/null
+"let &grepprg='grep -n -i -R --exclude=' . shellescape("{tags,*.ipynb,*.pyc,.mypy_cache/*}") . ' $* . /dev/null'
 
 " Detect file types
 filetype plugin on
@@ -106,7 +109,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.mypy_cache/*
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 " Completion settings
-"
+
 " Disable the preview pane on completion (completeopt without 'preview')
 set completeopt=longest,menuone
 set complete=.,],w,b,u,U
@@ -115,9 +118,9 @@ set complete=.,],w,b,u,U
 set pumheight=10
 
 " DetectIndent settings
-autocmd BufReadPost * :DetectIndent
 let g:detectindent_preferred_expandtab = 1
 let g:detectindent_preferred_indent = 4
+autocmd BufReadPost * :DetectIndent
 
 " ALE
 " let g:ale_lint_on_text_changed = 'never'
@@ -132,12 +135,6 @@ map <leader>al :ALELint<CR>
 
 " open NERDTree and Tagbar
 map <leader>f :NERDTreeToggle<CR>:TagbarToggle<CR>
-
-" Enable RainbowParentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 " additional vim C++ syntax highlighting
 let g:cpp_class_scope_highlight = 1

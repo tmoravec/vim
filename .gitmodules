@@ -1,30 +1,30 @@
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
-	url = git://github.com/kien/ctrlp.vim.git
-[submodule "vim/bundle/detectindent"]
-	path = vim/bundle/detectindent
-	url = git://github.com/ciaranm/detectindent.git
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
-	url = https://github.com/tpope/vim-markdown.git
-[submodule "vim/bundle/tagbar"]
-	path = vim/bundle/tagbar
-	url = git://github.com/majutsushi/tagbar.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
+[submodule "vim/pack/modules/start/ctrlp.vim"]
+	path = vim/pack/modules/start/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/pack/modules/start/detectindent"]
+	path = vim/pack/modules/start/detectindent
+	url = https://github.com/roryokane/detectindent
+[submodule "vim/pack/modules/start/tagbar"]
+	path = vim/pack/modules/start/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim/pack/modules/start/nerdtree"]
+	path = vim/pack/modules/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/rainbow_parentheses.vim"]
-	path = vim/bundle/rainbow_parentheses.vim
-	url = https://github.com/kien/rainbow_parentheses.vim.git
-[submodule "vim/bundle/vim-cpp-enhanced-highlight"]
-	path = vim/bundle/vim-cpp-enhanced-highlight
+[submodule "vim/pack/modules/start/vim-cpp-enhanced-highlight"]
+	path = vim/pack/modules/start/vim-cpp-enhanced-highlight
 	url = https://github.com/octol/vim-cpp-enhanced-highlight
-[submodule "vim/bundle/Mark"]
-	path = vim/bundle/Mark
+[submodule "vim/pack/modules/start/Mark"]
+	path = vim/pack/modules/start/Mark
 	url = https://github.com/vim-scripts/Mark
-[submodule "vim/bundle/vim-colors-pencil"]
-	path = vim/bundle/vim-colors-pencil
+[submodule "vim/pack/modules/start/vim-colors-pencil"]
+	path = vim/pack/modules/start/vim-colors-pencil
 	url = https://github.com/reedes/vim-colors-pencil.git
-[submodule "vim/bundle/ale"]
-	path = vim/bundle/ale
+[submodule "vim/pack/modules/start/ale"]
+	path = vim/pack/modules/start/ale
 	url = https://github.com/w0rp/ale
+[submodule "vim/pack/modules/start/solarized"]
+	path = vim/pack/modules/start/solarized
+	url = https://github.com/lifepillar/vim-solarized8
+[submodule "vim/pack/modules/start/python-syntax"]
+	path = vim/pack/modules/start/python-syntax
+	url = https://github.com/vim-python/python-syntax
