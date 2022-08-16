@@ -3,12 +3,12 @@ set t_Co=256
 set term=screen-256color
 
 " Colorschemes
-let g:pencil_higher_contrast_ui = 1
 let solarized_contrast = "high"
 let g:pencil_higher_contrast_ui = 1
 let g:pencil_neutral_code_bg = 1
-colo solarized
+"colo solarized
 set bg=light
+colo pencil
 
 " Highlight 80th column
 set colorcolumn=80
