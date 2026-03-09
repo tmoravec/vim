@@ -1,154 +1,150 @@
-" 256 colors in screen/tmux
-set t_Co=256
-set term=screen-256color
+" --- Modern Simplified Vimrc ---
 
-" Colorschemes
-let solarized_contrast = "high"
-let g:pencil_higher_contrast_ui = 1
-let g:pencil_neutral_code_bg = 1
-"colo solarized
-set bg=light
-colo pencil
+" Set encoding first
+set encoding=utf-8
+scriptencoding utf-8
 
-" Highlight 80th column
-set colorcolumn=80
-
-" Tabs switching
-map th :tabprev<CR>
-map <C-S-Tab> :tabprev<CR>
-map tl :tabnext<CR>
-map <C-Tab> :tabnext<CR>
-map tn :tabnew <CR>
-map td :tabclose<CR>
-
-" Enable mouse
-set mouse=a
-
-" Make it a sane editor
-set incsearch
-set number
-set backspace=indent,eol,start
-"set tabstop=4
-"set shiftwidth=4
-"set softtabstop=4
-"set expandtab
-"set copyindent
-set smartcase
-set title
+" --- General Settings ---
+set nocompatible            " Use Vim defaults instead of Vi compatibility
+filetype plugin indent on   " Enable filetype-specific plugins and indentation
+syntax on                   " Enable syntax highlighting
+set mouse=a                 " Enable mouse support
+set number                  " Show line numbers
+set title                   " Update terminal title
+set colorcolumn=80          " Highlight the 80th column
+set updatetime=1000         " Faster update time (better for Tagbar/plugins)
+set hidden                  " Allow background buffers
+set lazyredraw              " Faster screen redraw
+set laststatus=2            " Always show status line
+set wildmenu                " Enhanced command line completion
 set wildmode=longest,list,full
-set wildmenu
-set lazyredraw
+set backspace=indent,eol,start " Sane backspace behavior
 
-" no backup files
+" No backup files (modern SSDs don't need these as much)
 set nobackup
 set noswapfile
 
-" Show status line always
-set laststatus=2
+" --- Colors & UI ---
+" Enable true color support if your terminal supports it (iTerm2/modern tmux)
+if has('termguicolors')
+    " Fix for artifacts in tmux/some terminals (disable Background Color Erase)
+    if &term =~ '256color' || $TERM =~ '256color'
+        set t_ut=
+    endif
+    set termguicolors
+endif
 
-" Some info in the status line
-set statusline=%<%f\ %h%m%r%#warningmsg#%*%=%-14.(%l,%c%V%)\ %P
+set background=light
 
-" remove trailing space
-map <leader>rts :%s/\s\+$//e<CR>
+" Transparent background hack (must be defined BEFORE colorscheme)
+augroup transparent_background
+    autocmd!
+    autocmd ColorScheme pencil highlight Normal guibg=NONE ctermbg=NONE
+    autocmd ColorScheme pencil highlight NonText guibg=NONE ctermbg=NONE
+    autocmd ColorScheme pencil highlight LineNr guibg=NONE ctermbg=NONE
+    autocmd ColorScheme pencil highlight Folded guibg=NONE ctermbg=NONE
+    autocmd ColorScheme pencil highlight EndOfBuffer guibg=NONE ctermbg=NONE
+augroup END
 
-" run Black
-map <leader>black :!black -l 80 %<CR>
+colorscheme pencil
+let g:pencil_higher_contrast_ui = 1
+let g:pencil_neutral_code_bg = 1
 
-" quick resize
-map <leader>vri :vertical resize +20<CR>
-map <leader>vrd :vertical resize -20<CR>
+" --- GUI & Cursor ---
+set guicursor=a:blinkon0       " Disable cursor blinking in all modes
+if has('gui_running') || has('gui_macvim')
+    set guifont=Monaco:h12
+    set linespace=2            " Extra breathing room between lines
+endif
 
-" Set syntax to diff
-map <leader>ssd :set syntax=diff<CR>
+" --- Tabs & Search ---
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set smartcase               " Case-insensitive search unless capital used
+set incsearch               " Search as you type
 
-" Don't search in tags file
-set grepprg=grep\ -n\ -i\ -R\ --exclude=tags\ --exclude=\*.ipynb\ --exclude=\*.pyc\ --exclude=\*.map\ --exclude-dir=\*node_modules*\ --exclude-dir=.mypy_cache\*\ $*\ .\ /dev/null
-"let &grepprg='grep -n -i -R --exclude=' . shellescape("{tags,*.ipynb,*.pyc,.mypy_cache/*}") . ' $* . /dev/null'
+" Use ripgrep (rg) if available (much faster than grep)
+if executable('rg')
+    set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+    set grepformat=%f:%l:%c:%m
+endif
 
-" Detect file types
-filetype plugin on
-filetype indent plugin on
-setlocal ofu=syntaxcomplete#Complete
-syntax on
+" --- Status Line (Simplified) ---
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
-" .tac files are Python
-au BufNewFile,BufRead *.tac set filetype=python
+" --- Custom Filetypes ---
+augroup filetype_overrides
+    autocmd!
+    autocmd BufNewFile,BufRead *.tac set filetype=python
+    autocmd BufNewFile,BufRead *.twig set filetype=html
+augroup END
 
-" .twig files are HTML
-au BufNewFile,BufRead *.twig set filetype=html
+" --- Mappings (Using non-recursive noremap) ---
 
-" Tagbar
-set updatetime=1000
-map <F7> :!ctags -R --exclude=.mypy_cache<CR>
+" Tab switching
+nnoremap th :tabprev<CR>
+nnoremap tl :tabnext<CR>
+nnoremap tn :tabnew <CR>
+nnoremap td :tabclose<CR>
+nnoremap <C-S-Tab> :tabprev<CR>
+nnoremap <C-Tab> :tabnext<CR>
+
+" Visual line movement (treat wrapped lines as separate)
+nnoremap j gj
+nnoremap k gk
+
+" Fast escape
+nnoremap <C-c> <Esc>
+inoremap <C-c> <Esc>
+
+" Utilities
+nnoremap <leader>rts :%s/\s\+$//e<CR>
+nnoremap <leader>black :!black -l 80 %<CR>
+nnoremap <leader>vri :vertical resize +20<CR>
+nnoremap <leader>vrd :vertical resize -20<CR>
+nnoremap <leader>ssd :set syntax=diff<CR>
+
+" Quickfix navigation
+nnoremap <leader>j :cn<CR>
+nnoremap <leader>k :cp<CR>
+
+" --- Plugin Configuration ---
+
+" Tagbar & Ctags
+nnoremap <F7> :!ctags -R --exclude=.mypy_cache<CR>
 let g:tagbar_sort=0
 
-" Open tag in new tab on C-\
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" Open tag in new tab
+nnoremap <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
-" by default show tag selection on multiple options
+" Better tag navigation (g] opens selection if multiple)
 nnoremap <C-]> g<C-]>
 vnoremap <C-]> g<C-]>
-nnoremap g<C-]> <C-]>
-vnoremap g<C-]> <C-]>
 
-" This is a must :-)
-map <C-c> <Esc>
+" NERDTree & Tagbar Toggle
+nnoremap <leader>f :NERDTreeToggle<CR>:TagbarToggle<CR>
 
-" GUI options
-set guicursor+=a:blinkon0
-set guifont=Menlo\ Regular:h11
-set guioptions-=T
-set guioptions-=m
-set guioptions+=LlRrb
-set guioptions-=LlRrb
-set linespace=2
-
-" CtrlP settings
+" CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/.mypy_cache/*
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|mypy_cache)$'
 
-" Completion settings
-
-" Disable the preview pane on completion (completeopt without 'preview')
-set completeopt=longest,menuone
-set complete=.,],w,b,u,U
-"
-" Height of the complete menu.
-set pumheight=10
-
-" DetectIndent settings
+" DetectIndent
 let g:detectindent_preferred_expandtab = 1
 let g:detectindent_preferred_indent = 4
 autocmd BufReadPost * :DetectIndent
 
 " ALE
-" let g:ale_lint_on_text_changed = 'never'
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 0
-let g:ale_lint_on_enter = 0
-" let g:ale_linters = {
-" \   'python': ['pylint'],
-" \}
 let g:ale_python_pylint_options = "-d C0103,C0111,R0903,R0201,W0613,E1101"
-map <leader>al :ALELint<CR>
+nnoremap <leader>al :ALELint<CR>
 
-" open NERDTree and Tagbar
-map <leader>f :NERDTreeToggle<CR>:TagbarToggle<CR>
-
-" additional vim C++ syntax highlighting
+" C++ Syntax Highlighting
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_concepts_highlight = 1
 
-
-map <leader>j :cn<CR>
-map <leader>k :cp<CR>
-
-" Set syntax to diff
-map <leader>ssd :set syntax=diff<CR>
-
-set encoding=utf-8
-
-map j gj
-map k gk
+" Completion Menu
+set completeopt=longest,menuone
+set pumheight=10

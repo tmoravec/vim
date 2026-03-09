@@ -9,7 +9,7 @@
 	url = https://github.com/majutsushi/tagbar.git
 [submodule "vim/pack/modules/start/nerdtree"]
 	path = vim/pack/modules/start/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
+	url = https://github.com/preservim/nerdtree
 [submodule "vim/pack/modules/start/vim-cpp-enhanced-highlight"]
 	path = vim/pack/modules/start/vim-cpp-enhanced-highlight
 	url = https://github.com/octol/vim-cpp-enhanced-highlight
