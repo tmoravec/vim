@@ -66,8 +66,10 @@ set incsearch               " Search as you type
 
 " Use ripgrep (rg) if available (much faster than grep)
 if executable('rg')
-    set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+    set grepprg=rg\ --vimgrep\ --smart-case\ --follow\ --glob\ '!node_modules'
     set grepformat=%f:%l:%c:%m
+else
+    set grepprg=grep\ -r\ --exclude-dir=node_modules\ -n
 endif
 
 " --- Status Line (Simplified) ---
