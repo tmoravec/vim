@@ -66,10 +66,10 @@ set incsearch               " Search as you type
 
 " Use ripgrep (rg) if available (much faster than grep)
 if executable('rg')
-    set grepprg=rg\ --vimgrep\ --smart-case\ --follow\ --glob\ '!node_modules'
+    set grepprg=rg\ --vimgrep\ --smart-case\ --follow\ --glob\ '!tags'\ --glob\ '!{node_modules,dist,build,.git,.venv,venv,__pycache__}'\ --glob\ '!*.min.js'
     set grepformat=%f:%l:%c:%m
 else
-    set grepprg=grep\ -r\ --exclude-dir=node_modules\ -n
+    set grepprg=grep\ -rn\ --exclude-dir={node_modules,dist,build,.git,.venv,venv,__pycache__}\ --exclude=tags\ --exclude=*.min.js
 endif
 
 " --- Status Line (Simplified) ---
@@ -114,7 +114,7 @@ nnoremap <leader>k :cp<CR>
 " --- Plugin Configuration ---
 
 " Tagbar & Ctags
-nnoremap <F7> :!ctags -R --exclude=.mypy_cache<CR>
+nnoremap <F7> :!ctags -R --exclude=.mypy_cache --exclude=dist --exclude=node_modules --exclude=build --exclude=.git --exclude=.venv --exclude=venv --exclude=__pycache__<CR>
 let g:tagbar_sort=0
 
 " Open tag in new tab
